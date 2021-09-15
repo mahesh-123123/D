@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                git branch: 'master', url: 'https://github.com/mahesh-123123/D.git'
+                git branch: 'main', url: 'https://github.com/mahesh-123123/D.git'
             }
         }
         
@@ -17,11 +17,11 @@ pipeline {
             }
         }
         
-          stage('Deploy Docker Image') {
+          stage('Push to Docker Hub') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'dockerhub',  url: '') {
-                bat 'docker push maheshreddy123/D:v4'
+                bat 'docker push maheshreddy123/D:v1'
                
                 }
               }
